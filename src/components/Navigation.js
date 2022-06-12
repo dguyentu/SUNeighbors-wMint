@@ -1,7 +1,10 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
+
 import styled from 'styled-components'
 import Button from './Button'
 import Logo from './Logo'
+
+
 
 const Section = styled.section`
 width: 100vw;
@@ -104,7 +107,7 @@ background: ${props => props.theme.text};
 position: absolute;
 top: 2rem;
 left: 50%;
-transform: ${props => props.click ? 'translateX(-50%) rotate(90deg)' : 'translateX(-50%) rotate(0)'  };
+transform: ${props => props.click ? 'translateX(-50%) rotate(90deg)' : 'translateX(-50%) rotate(0)'};
 
 display: none;
 justify-content: center;
@@ -132,12 +135,12 @@ transition: all 0.3s ease;
 
 &::after{
   top: ${props => props.click ? '0.3rem' : '0.5rem'};
-  transform: ${props => props.click ? 'rotate(-40deg)' : 'rotate(0)'  };
+  transform: ${props => props.click ? 'rotate(-40deg)' : 'rotate(0)'};
 
 }
 &::before{
   bottom: ${props => props.click ? '0.3rem' : '0.5rem'};
-  transform: ${props => props.click ? 'rotate(40deg)' : 'rotate(0)'  };
+  transform: ${props => props.click ? 'rotate(40deg)' : 'rotate(0)'};
 }
 
 
@@ -147,26 +150,26 @@ transition: all 0.3s ease;
 const Navigation = () => {
 
   const [click, setClick] = useState(false);
-  
-const scrollTo = (id) => {
 
-  let element = document.getElementById(id);
+  const scrollTo = (id) => {
 
-  element.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start',
-    inline: 'nearest'
-  })
+    let element = document.getElementById(id);
 
-  setClick(!click);
-}
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest'
+    })
+
+    setClick(!click);
+  }
 
   return (
-    
+
     <Section id="navigation">
       <NavBar>
         <Logo />
-        <HamburgerMenu  click={click}  onClick={() => setClick(!click)}>
+        <HamburgerMenu click={click} onClick={() => setClick(!click)}>
           &nbsp;
         </HamburgerMenu>
         <Menu click={click}>
@@ -178,13 +181,13 @@ const scrollTo = (id) => {
           <MenuItem onClick={() => scrollTo('faq')}  >Faq</MenuItem>
           <MenuItem>
             <div className="mobile">
-            <Button text="Connect Wallet" link="https://google.com" />
+              <Button text="Connect Wallet" link="https://google.com" />
             </div>
           </MenuItem>
         </Menu>
-          <div className="desktop">
+        <div className="desktop">
           <Button text="Connect Wallet" link="https://google.com" />
-          </div>
+        </div>
 
       </NavBar>
     </Section>
